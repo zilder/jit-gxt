@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>ru.smyt</groupId>
+    <artifactId>JitDemo</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <artifactId>webapp</artifactId>
+  <packaging>war</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.extjs</groupId>
+      <artifactId>gxt</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>JitGXT</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <executions>
+          <!-- GWT version detected from dependencyManagement -->
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>generateAsync</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+            <runTarget>app.html</runTarget>
+            <webXml>${webappDirectory}/WEB-INF/web.xml</webXml>
+            <!--<draftCompile>true</draftCompile>
+            <optimizationLevel>1</optimizationLevel>-->
+            <hostedWebapp>${webappDirectory}</hostedWebapp>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <!--<configuration>
+          <warSourceDirectory>war</warSourceDirectory>
+          <webXml>${webappDirectory}/WEB-INF/web.xml</webXml>
+        </configuration>-->
+        <configuration>
+          <webappDirectory>${webappDirectory}</webappDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <!-- for GXT-2.2.5 -->
+    <repository>
+      <id>ucdavis.edu</id>
+      <url>http://maven.ucdavis.edu/repo/</url>
+    </repository>
+  </repositories>
+</project>

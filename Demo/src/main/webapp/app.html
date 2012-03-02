@@ -1,0 +1,164 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the    -->
+<!-- browser's rendering engine into               -->
+<!-- "Standards Mode". Replacing this declaration  -->
+<!-- with a "Quirks Mode" doctype may lead to some -->
+<!-- differences in layout.                        -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--                                                               -->
+    <!-- Consider inlining CSS to reduce the number of requested files -->
+    <!--                                                               -->
+    <link type="text/css" rel="stylesheet" href="app.css" />
+    <link rel='stylesheet' type='text/css' href='resources/ext/css/gxt-all.css' />
+    <script language='javascript' src='resources/ext/flash/swfobject.js'></script>
+    
+    <link rel='stylesheet' type='text/css' href='resources/prettify/prettify.css' />
+    <script language='javascript' src='resources/prettify/prettify.js'></script>
+    
+    <!-- JIT Library File -->
+    <script src="resources/Jit/jit.js"></script>
+    
+    <style>
+        .node {
+          color:#fff;
+          font-size:9px;
+          overflow:hidden;
+          cursor:pointer;
+          text-align: center;
+        /*  
+          text-shadow:2px 2px 5px #000;
+          -o-text-shadow:2px 2px 5px #000;
+          -webkit-text-shadow:2px 2px 5px #000;
+          -moz-text-shadow:2px 2px 5px #000;
+        */
+        }
+
+        /*TOOLTIPS*/
+        .tip {
+            color: #fff;
+            width: 139px;
+            background-color: black;
+            opacity:0.9;
+            filter:alpha(opacity=90);
+            font-size:10px;
+            font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+            padding:7px;
+            text-align: center;
+        }
+        .file_info {
+            text-align: center;
+            width: 150px;
+            border: 1px solid #9FD4FF;
+            padding: 10px;
+        }
+    </style>
+
+    <!--<script language="javascript" type="text/javascript">
+    var json = {};
+    /*function init() {
+	// init data
+        alert('init()');
+	json = {
+		"children": [
+		{
+			"children": [
+			{
+				"children": [],
+				"data": {
+					'playcount': '276',
+					'$color': '#a0a0f0',
+					'$area': 276
+				},
+				'id': 'test1',
+				'name': 'Test one'
+			},
+			{
+				"children": [],
+				"data": {
+					'playcount': '271',
+					'$color': '#a0f0a0',
+					'$area': 271
+				},
+				'id': 'test2',
+				'name': 'Test two'
+			}],
+			'data': {},
+			'id': 'group1',
+			'name': 'Group one'
+		},],
+		'data': {},
+		'id': 'all',
+		'name': 'All'
+	};
+    }*/
+    function init_jit(div_id, data) {
+	// init TreeMap
+        //alert('init_jit()');
+        alert('start()');
+	var tm = new $jit.TM.Squarified({
+		injectInto: div_id,
+		titleHeight: 15,
+		offset: 1,
+		Events: {
+			enable: true,
+			onClick: function(node) {
+				if(node) tm.enter(node);
+			},
+			onRightClick: function() {
+				tm.out();
+			}
+		},
+		duration: 1000,
+                animate: true
+	});
+        //alert('3');
+	tm.loadJSON(data);
+        //alert('4');
+	tm.refresh();
+
+    }
+    function start(div_id) {
+        alert('start()');
+        init();
+        init_jit(div_id);
+    }
+    </script> -->
+    <!--                                           -->
+    <!-- Any title is fine                         -->
+    <!--                                           -->
+    <title>JitGXT Demo</title>
+
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    <!--<script type="text/javascript" language="javascript" src="app/app.nocache.js"></script>-->
+    <script type="text/javascript" language="javascript" src="ru.smyt.jitgxt.Demo/ru.smyt.jitgxt.Demo.nocache.js"></script>
+  </head>
+
+  <!--                                           -->
+  <!-- The body can have arbitrary html, or      -->
+  <!-- you can leave the body empty if you want  -->
+  <!-- to create a completely dynamic UI.        -->
+  <!--                                           -->
+  <!--<body onload="start('test_div')">-->
+  <body>
+
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+
+  </body>
+</html>

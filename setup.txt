@@ -1,0 +1,22 @@
+SETUP
+=====
+
+To build the jit-gxt and demo application run:
+$ mvn clean package
+from the root folder (you need to have the maven2 installed)
+
+To add jit-gxt to your web application follow the next few steps:
+
+1. Add the jit-gxt-1.0.jar dependency to your GXT application
+2. Add the following line to your gwt.xml config:
+
+	<inherits name="ru.smyt.jitgxt.JitGXT"/>
+
+3. Download the JavaScript InfoViz Toolkit from http://thejit.org/. Unpack it to your webapp resources directory and add <script> entry to the main html file:
+
+	<script src="resources/Jit/jit.js"></script>
+
+4. You may also want to define these css classes:
+
+	.node - Node style
+	.tip  - Tip style

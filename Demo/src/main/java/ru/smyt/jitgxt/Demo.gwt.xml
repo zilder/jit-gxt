@@ -1,0 +1,8 @@
+<module>
+  <inherits name="com.google.gwt.user.User"/>
+  <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+
+  <inherits name="ru.smyt.jitgxt.JitGXT"/>
+
+  <entry-point class="ru.smyt.jitgxt.client.app"/>
+</module>
